@@ -1,0 +1,35 @@
+# Find path between two given nodes (BFS with queue)
+
+from collections import deque
+
+def bfs(graph, start, goal):
+     if start == goal:
+          print([start])
+          return
+     queue = deque([start])
+     parent = { } # dictionary to hold the parent when retrieve path and visited notes
+     parent [start] = start
+while queue:
+     currNode = queue.popleft()
+     for neighbor in graph [currNode]:
+          if neighbor == goal:                  # if goal is found, just print the path
+              parent[neighbor] = currNode
+              print_path(parent, neighbor, start)
+              return
+          if neighbor not in parent:
+               parent[neighbor] = currNode
+               queue.append(neighbor)
+print( “No pass found.”)
+
+def print_path(parent, goal, start):
+      path = [goal]
+      while goal != start:
+      goal = parent[goal]
+      path.insert(0, goal)
+      print(path)
+
+if __name__ == ‘__main__’:
+graph = {‘A’: set([‘B’], [‘C’]), ‘B’: set([‘A’], [‘D’]), ‘C’: set([‘B’])}
+bfs(graph, ‘A’, ‘C’)
+    
+               
