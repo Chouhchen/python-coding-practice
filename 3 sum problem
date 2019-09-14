@@ -1,0 +1,11 @@
+3 Sum Problem:
+
+def threeSum(arr, sum):
+    for i in range(0, len(arr)-2):
+        for j in range (j+1, len(arr)-1):
+            for k in range(k+2, len(arr)-2):
+                if arr[i]+arr[j]+arr[k] = sum:
+                     print(“Match is”, arr[i],”,”, arr[j],”,”,arr[k])
+                     return Ture
+    # if no match is found
+    return False
