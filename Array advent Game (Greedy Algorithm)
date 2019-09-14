@@ -1,0 +1,15 @@
+# Array advent Game (Greedy Algorithm)
+# A = [ 3, 3, 1, 0, 2, 0, 1] find the max furthest reach
+
+i = 0
+furthest_reach = max(furthest_reach, a[i] + i )
+
+def array_advance(A):
+  furthest_reach = 0
+  last_index = len(A) – 1
+  i = 0
+  while i <= furthest_reach and furtest_reach < last_index:
+        furthest_reach = max( furthest_reach, a[i] + i)
+        i += 1 
+  return 
+            furthest_ reach >= last _index
