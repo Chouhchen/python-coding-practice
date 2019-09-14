@@ -1,0 +1,23 @@
+# Stack with push, pop and minimum functions are all with constant time 
+# stack ‘s push and pop are both in constant time, but minimum require search, so every time we push or pop, the stack need to up date the minimum
+
+Class MiniStack(object):
+    def __init__(self):
+        self._stack = [ ]
+        self. _minimum_stack = [ ]
+
+    def push(self, value):
+         self._stack.append(value)
+         if value <= self._minimum_stack[-1]
+         self._minimum_stack.append(value)
+
+    def min(self):
+          return self._minimum_stack[-1]
+def pop(self):
+      if not self._stack:
+           raise ValueError(“can not pop from empty stack”)
+      
+       value = self._stack.pop()
+       if value  == self._minimum.stack[-1]
+              self._minimum_stack.pop()
+       return value
