@@ -1,0 +1,53 @@
+Histograms and Area
+
+"""Firstly, we can use naive approach for the question, which is to create a list of all the possible rectangle area of the histogram by going through each bar (the y value of the array) along the x axis (  the index of the arry)."""
+
+
+# create the function to obtain rectangle.
+
+def calc_rects(hisglist):
+
+    for i, cur_h in enumerate(hisglist):
+        cur_w = 0
+        for old_h in hisglist[i:]:
+            if old_h < cur_h:
+                cur_h = old_h
+        cur_w += 1
+        print(i, cur_w, cur_h)
+
+# find the largest rectangle
+def largest_rect(hisglist):
+    return max(calc_rects(hisglist))
+
+# test case 1
+hisglist = [2, 4, 2, 1]
+print(largest_rect(hisglist), cur_h)
+
+>> TypeError: 'NoneType' object is not iterable
+
+Then one can improve the naive approach with to get the largest rectangle area with divide and conquer by finding the farest length a bar can reach with it’s high ( so the linked bars have to be taller than this bar). 
+
+# Stack data structure is the best to track the maximum area size.
+
+def largest_rect(histl):
+    ans = 0
+    histl = [-1] + histl
+    histl.append(-1)
+    n = len(histl)
+    stack = [0]  # store index
+
+    for i in range(n):
+        while histl[i] < histl[stack[-1]]:
+            h = histl[stack.pop()]
+            area = h*(i-stack[-1]-1)
+            ans = max(ans, area)
+        stack.append(i)
+    return ans, h
+
+histl = [2, 4, 2, 1]
+
+print(largest_rect(histl))
+
+>> (6, 1)
+
+# the code can not return  the high of the rectangle!!
