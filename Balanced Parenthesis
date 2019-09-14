@@ -1,0 +1,45 @@
+Balanced Parenthesis 
+
+“””One can use stack data structure to capture the matching of open parenthesis and close parenthesis. This means when we find a open parenthesis
+“””
+
+def balanced_pare(string):
+    S = [] # build a stack with list data structure
+    count = 0 # counting the number of matching parentheses
+    other = []   # if the parenthesis is not matching, I put it into a different list
+    for char in string:
+        if char == '(':
+            S.append(char) # add the open parenthesis to the stack /or the list
+        if char == ')':
+            if S == []:
+                other.append(char)               
+            else: 
+                S.remove(S[-1]) # remove the open parenthesis because it finds a match
+                count +=1 # counting one pair of match
+    return count * 2 # there are two parentheses in one matching, so we need to times 2
+    
+# run the example strings
+string1 = "())(())"
+string2 = " )(()))))((((()"
+
+print(balanced_pare(string1))
+print(balanced_pare(string2))
+
+runfile('/Users/huichenchou/0820.py', wdir='/Users/huichenchou')
+6
+6
+
+I gave three test cases here to check if the program is fine.
+testcase1 = " "
+testcase2 = "((("
+testcase3 = "((())))"
+print(balanced_pare(testcase1))
+print(balanced_pare(testcase2))
+print(balanced_pare(testcase3))
+
+runfile('/Users/huichenchou/0820.py', wdir='/Users/huichenchou')
+0
+0
+6
+
+ 
