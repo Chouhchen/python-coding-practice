@@ -1,0 +1,10 @@
+
+“”” determine if a circular array of relative indices is compose of a single, complete circle (return to the first element) when following the indices [ 3,1,2,-2,1] [2,5,-3,-2,-2] ”””
+
+def is_cycle(sequece):
+index = 0
+seen = set()
+while index not in seen:
+       see.add(index)
+       index = (index + sequence[index]) % len(sequence) # steps of the indexs
+return len(seen) == len(sequence)
