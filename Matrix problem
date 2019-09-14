@@ -1,0 +1,40 @@
+Matrix island problem:
+
+def numIslands(self, grid):
+    if not grid:
+       return 0
+
+    count = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == ‘1’:
+                self.dfs(grid, i, j)
+                count += 1
+    return count  
+
+def defs(self, grid, i, j):
+    if i<0, j<0 or i>=len(grid) or j >=len(grid[0]) or grid[i][j] != ‘1’:
+    return
+    grid[i][j] = ‘#’
+    self.dfs(gird, i+1, j)
+    self.dfs(gird, i-1, j)    
+    self.dfs(gird, i, j+1)
+    self.dfs(gird, i, j-1)
+
+
+Matrix construction:
+
+R = int(input(“Enter the number of rows:”))
+C = int(input(“Enter the number of colums:”))
+
+for i in range(R):
+    a = []
+    for j in range(C):
+        a.append(int(input()))
+    matrix.append(a)
+
+# printing the matrix
+for i in range(R):
+    for j in range(C):
+        print(matrix[i][j], end = “ “)
+    print() 
