@@ -1,0 +1,54 @@
+Shortest Word Formed from Car Plates
+
+Code
+
+@author: huichenchou
+“””We are given a vocabulary set, but in this exercise, we have no access, so I import an English word dictionary from python library. 
+Efficiency can be improved by separate vowels and consonants, so if the number plate letters has consonant only, we can try adding  vowels first.
+Search efficiency can also be improved if the vocabulary dataset is constructed with hash function”””
+
+Import itertools 
+Import enchant
+d = enchant.Dict(word)
+letters = [abcdefghijklmnopqrstuvwxyz]
+
+class Car_plate(str):
+def __init__(self):
+    self.vals = vals
+
+"""read in all the letters and numbers in car plate and extract only letters """  
+def read_letters(self, plate):  
+    chars = [for ch in plate if ch isalph()]
+    chars = ''.joint(chars)
+    
+"""make set of words out of all the letters of the car plate, 
+with permutation function imported from module"""
+def make_wordsets(self, chars):
+    plate_wordsets = itertools.permutation(chars, len(s))
+    return plate_wordsets
+
+"""find shortest word by firstly checking if the letters in car plate can form a word"""
+def find_shortest(chars):
+    d = enchant.Dict("en_US")
+    for word in plate_wordsets:
+        if d.check(word)== True:
+            return len(word), word
+    # if the letters in the plate can not form a word.
+    # we add one letter at one time and iterate from all 26 alphabets to find if we can make a word.
+    # we can also try suggest() function to come up with the shortest word
+        else: 
+            for i in range(26):
+                    chars = chars.joint(i)
+                    plate_wordsets = chars.make_wordsets()
+                    for word in plate_wordsets:
+                        if d.check(word) == True:
+                            return len(word), word
+                        else:
+                            for j in range(i+1, 26): # if not, we add one more letter and check again
+                                chars = chars.joint(letters[j])
+                                plate_letters.is_word()
+                                return len(word), word
+                        return None
+                    
+p1 = Car_plate(WE1245) 
+Print(Car_plate.find_shortest(p1))
