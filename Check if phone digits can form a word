@@ -1,0 +1,32 @@
+# Check if phone digits can form a word
+
+def is_dictionary_word(word):
+pass
+
+# DIGIT_LETTERS = { “0”: “”, “1”: “”, “2”: “abc”,”3”:”def””3”: "ghi", ”4”: "jkl",”5”: "mno", ”6”: "pqrs", ”7”: "tuv", ”8”: "wxyz"]
+
+def check(digits, text, words):
+if not digits:
+    if is_ditionary_word(text):
+        word.append(text)
+    return
+letters = DIGIT_LETTERS[digits[0]]
+digits = digits[1:]
+for letter in letters:
+    check(digits, text + letter, words)
+
+get_words(number):
+word = []
+check(string(number), “ “, words)
+return words
+
+def get_words(number):
+sequence = [ ]
+for digit in str(number):
+sequences.append(DIGIT_LETTERS[digit])
+
+for product in itertools.product(sequences):
+word = “ “.join(product)
+if is_dictionary_word(word):
+    yield word
+
